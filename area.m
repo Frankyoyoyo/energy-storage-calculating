@@ -1,6 +1,8 @@
 function [A]=area(U,P,i)
 m=max(U);
-[c,d]=find(U==m);
+[a,b]=find(U==m);
+[c,d]=find(abs(U)<100);
+c=c(floor(length(c)/2) );
 
 P=(mean(abs(P')))';
-A=trapz(U(1:c),P(1:c));
+A=-trapz(U(a:c),P(a:c));
